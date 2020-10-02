@@ -1,5 +1,5 @@
-resource "aws_security_group" "demo_1" {
-  name = "first_tera_sec_group"
+resource "aws_security_group" "demo_2" {
+  name = "Week2_tera_sec_group"
 
   ingress {
        from_port = 22

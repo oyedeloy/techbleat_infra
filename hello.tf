@@ -7,7 +7,7 @@ resource "aws_instance" "first_node" {
   ami                    = "ami-04cd019702b8c27b8"
   instance_type          = "t2.micro"
   key_name               = "devops_key"
-  vpc_security_group_ids = [aws_security_group.demo_2.id]
+  vpc_security_group_ids = [aws_security_group.demo_1.id]
 
   tags = {
     Name        = "Toolbox_1"

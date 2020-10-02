@@ -3,14 +3,6 @@ provider "aws" {
   region  = "us-east-2"
 }
 
-terraform {
-    backend "s3" {
-        bucket = "Wek_2-del-devops-bucket"
-        key    = "devops_key"
-        region = "us-east-2"
-    }
-}
-
 resource "aws_instance" "first_node" {
   ami                    = "ami-04cd019702b8c27b8"
   instance_type          = "t2.micro"

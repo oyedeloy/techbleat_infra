@@ -1,35 +1,28 @@
 provider "aws" {
   profile = "default"
-  region  = "eu-west-1"
+  region  = "us-east-2"
 }
 
-terraform {
-    backend "s3" {
-        bucket = "tecsbleat-simple-bucket"
-        key    = "techbleat.tfstate"
-        region = "eu-west-1"
-    }
-}
-
-resource "aws_instance" "first_task" {
-  ami           = "ami-0bfbfa28c5682b543"
+resource "aws_instance" "first_node" {
+  ami           = "ami-04cd019702b8c27b8"
   instance_type = "t2.micro"
-  key_name      = "Mac1"
+  key_name      = "devops_key"
+  vpc_security_group_ids = [aws_security_group.demo_2.id]
 
   tags = {
-    Name        = "Our First Node"
+    Name        = "Toolbox_1"
     Provisioner = "Terraform"
     Test        = "yes_no"
   }
 }
 resource "aws_instance" "second_node" {
-  ami                    = "ami-0bfbfa28c5682b543"
+  ami                    = "ami-04cd019702b8c27b8"
   instance_type          = "t2.micro"
-  key_name               = "Mac1"
-  vpc_security_group_ids = [aws_security_group.demo_sg.id]
+  key_name               = "devops_key"
+  vpc_security_group_ids = [aws_security_group.demo_2.id]
 
   tags = {
-    Name        = "Our Second Node"
+    Name        = "Toolbox_2"
     Provisioner = "Terraform"
   }
 }

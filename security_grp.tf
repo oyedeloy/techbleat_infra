@@ -1,9 +1,9 @@
-resource "aws_security_group" "demo_sg" {
-  name = "terraform_created_sg"
+resource "aws_security_group" "demo_1" {
+  name = "first_tera_sec_group"
 
   ingress {
-    from_port   = 22
-    to_port     = 22
+    from_port   = [80, 22]
+    to_port     = 80, 22]
     protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
 

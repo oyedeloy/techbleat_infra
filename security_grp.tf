@@ -12,7 +12,7 @@ resource "aws_security_group" "demo_1" {
     from_port = 80
     to_port = 80
     protocol = "TCP"
-    cidr_block = ["0.0.0.0/0"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
   
   egress {
